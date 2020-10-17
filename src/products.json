@@ -1,0 +1,154 @@
+{
+  "arrayOfProducts": [
+    {
+      "Id": "jenlooper-cactus",
+      "Maker": "@jenlooper",
+      "img": "https://marketplace-image.gazin.com.br/gazin-marketplace/unsafe//midias/imagens/2020/05/refrigerador-continental-240-l-cyclo-defrost-uma-porta-092005240713.jpg?fm=pjpg",
+      "Url": "https://www.hackster.io/agent-hawking-1/the-quantified-cactus-an-easy-plant-soil-moisture-sensor-e65393",
+      "Title": "The Quantified Cactus: An Easy Plant Soil Moisture Sensor",
+      "Description": "This project is a good learning project to get comfortable with soldering and programming an Arduino.",
+      "Ratings": [5, 5],
+      "price": 110
+    },
+    {
+      "Id": "jenlooper-light",
+      "Maker": "jenlooper",
+      "img": "https://marketplace-image.gazin.com.br/gazin-marketplace/unsafe//midias/imagens/2020/05/bebedouro-ibbl-compact-10l-e-20l-compressor-092005331126.jpg?fm=pjpg",
+      "Url": "https://www.hackster.io/agent-hawking-1/book-light-dee7e4",
+      "Title": "A beautiful switch-on book light",
+      "Description": "Use craft items you have around the house, plus two LEDs and a LilyPad battery holder, to create a useful book light for reading in the dark.",
+      "Ratings": null,
+      "price": 598.5
+    },
+    {
+      "Id": "jenlooper-lightshow",
+      "Maker": "@jenlooper",
+      "img": "https://marketplace-image.gazin.com.br/gazin-marketplace/unsafe//midias/imagens/2020/05/frigobar-midea-93-l-classe-a-112005121124.jpg?fm=pjpg",
+      "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
+      "Title": "Bling your Laptop with an Internet-Connected Light Show",
+      "Description": "Create a web-connected light-strip API controllable from your website, using the Particle.io.",
+      "Ratings": null,
+      "price": 398.99
+    },
+    {
+      "Id": "jenlooper-survival",
+      "Maker": "jenlooper",
+      "img": "https://marketplace-image.gazin.com.br/gazin-marketplace/unsafe//midias/imagens/2020/05/freezer-continental-305-l-manual-1-portas-102005180753.jpg?fm=pjpg",
+      "Url": "https://www.hackster.io/agent-hawking-1/create-a-compact-survival-kit-38bfdb",
+      "Title": "Create a Compact Survival Kit with LED Track Lighting",
+      "Description": "Use an Altoids tin with Chibitronics sticker LEDs to create a light-up compact that doubles as a survival kit for the young hipster",
+      "Ratings": null,
+      "price": 649.99
+    },
+    {
+      "Id": "sailorhg-bubblesortpic",
+      "Maker": "sailorhg",
+      "img": "https://marketplace-image.gazin.com.br/gazin-marketplace/unsafe//midias/imagens/2020/05/refrigerador-continental-365-l-cyclo-defrost-duplex-092005250746.jpg?fm=pjpg",
+      "Url": "https://twitter.com/sailorhg/status/1090107740049952770",
+      "Title": "Bubblesort Visualization",
+      "Description": "Visualization of sailor scouts sorted by bubblesort algorithm by their planet\u0027s distance from the sun",
+      "Ratings": null,
+      "price": 119.99
+    },
+    {
+      "Id": "sailorhg-corsage",
+      "Maker": "sailorhg",
+      "img": "https://marketplace-image.gazin.com.br/gazin-marketplace/unsafe//midias/imagens/2020/05/refrigerador-consul-397-l-frost-free-inverse-132005141112.jpg?fm=pjpg",
+      "Url": "https://twitter.com/sailorhg/status/1090113666911891456",
+      "Title": "Light-up Corsage",
+      "Description": "Light-up corsage I made with my summer intern.",
+      "Ratings": null,
+      "price": 139.5
+    },
+    {
+      "Id": "sailorhg-kit",
+      "Maker": "sailorhg",
+      "img": "https://marketplace-image.gazin.com.br/gazin-marketplace/unsafe//midias/imagens/2020/05/freezer-309l-consul-01-tampa-classificacao-a-092005400714.jpg?fm=pjpg",
+      "Url": "https://twitter.com/sailorhg/status/1090122822007963648",
+      "Title": "Pastel hardware kit",
+      "Description": "Pastel hardware kits complete with custom manufactured pastel alligator clips.",
+      "Ratings": null,
+      "price": 99.9
+    },
+    {
+      "Id": "sailorhg-led",
+      "Maker": "sailorhg",
+      "img": "https://marketplace-image.gazin.com.br/gazin-marketplace/unsafe//midias/imagens/2020/05/refrigerador-brastemp-540-l-frost-free-side-inverse-142005340721.jpg?fm=pjpg",
+      "Url": "https://twitter.com/sailorhg/status/1090117277540745216",
+      "Title": "Heart-shaped LED",
+      "Description": "custom molded heart shaped LED with sprinkles.",
+      "Ratings": null,
+      "price": 80.99
+    },
+    {
+      "Id": "selinazawacki-soi-shirt",
+      "Maker": "selinazawacki",
+      "img": "https://marketplace-image.gazin.com.br/gazin-marketplace/unsafe//midias/imagens/2020/05/bicicleta-com-cesta-fem-cairu-aro-26-genova-172005260806.jpg?fm=pjpg",
+      "Url": "https://www.instagram.com/p/BNvESj-j8PI/",
+      "Title": "Black Sweatshirt",
+      "Description": "Black sweatshirt hoody with the Sick of the Internet logo.",
+      "Ratings": null,
+      "price": 11.19
+    },
+    {
+      "Id": "selinazawacki-soi-pins",
+      "Maker": "selinazawacki",
+      "img": "https://marketplace-image.gazin.com.br/gazin-marketplace/unsafe//midias/imagens/2020/05/forno-eletrico-fischer-gourmet-grill-44-l-bancada-desligamento-automatico-grill-162005370840.jpg?fm=pjpg",
+      "Url": "https://www.instagram.com/p/BNm6hZzDoEF/",
+      "Title": "Sick of the Internet Pins",
+      "Description": "Still some time to enter the pin/sticker giveaway! ",
+      "Ratings": null,
+      "price": 299.9
+    },
+    {
+      "Id": "vogueandcode-hipster-dev-bro",
+      "Maker": "vogueandcode",
+      "img": "https://marketplace-image.gazin.com.br/gazin-marketplace/unsafe//midias/imagens/2020/05/bicicleta-cairu-aro-26-flash-21-marchas-162005170638.jpg?fm=pjpg",
+      "Url": "https://www.vogueandcode.com/shop/hipster-dev-bro",
+      "Title": "Hipster Dev",
+      "Description": "Hipster Dev is busy coding away while styled in a camo jacket and orange beanie.",
+      "Ratings": null,
+      "price": 199.556
+    },
+    {
+      "Id": "vogueandcode-pretty-girls-code-tee",
+      "Maker": "vogueandcode",
+      "img": "https://marketplace-image.gazin.com.br/gazin-marketplace/unsafe//midias/imagens/2020/05/lavadora-electrolux-12-programas-102005150715.jpg?fm=pjpg",
+      "Url": "https://www.vogueandcode.com/shop/pretty-girls-code-tee",
+      "Title": "Pretty Girls Code Tee",
+      "Description": "Everyone\u2019s favorite design is finally here on a tee! The Pretty Girls Code crew-neck tee is available in a soft pink with red writing.",
+      "Ratings": null,
+      "price": 499.15
+    },
+    {
+      "Id": "vogueandcode-ruby-sis-2",
+      "Maker": "vogueandcode",
+      "img": "https://marketplace-image.gazin.com.br/gazin-marketplace/unsafe//midias/imagens/2020/05/lavadora-mueller-pop-tank-4-programas-152005030632.jpg?fm=pjpg",
+      "Url": "https://www.vogueandcode.com/shop/ruby-sis-2",
+      "Title": "Ruby Sis",
+      "Description": "Styled in a dashiki, Ruby Sis is listening to music while coding in her favorite language, Ruby!",
+      "Ratings": null,
+      "price": 299.88
+    },
+    {
+      "Id": "selinazawacki-moon",
+      "Maker": "selinazawacki",
+      "img": "https://marketplace-image.gazin.com.br/gazin-marketplace/unsafe//midias/imagens/2020/05/lavadora-mueller-plus-4-programas-102005411123.jpg?fm=pjpg",
+      "Url": "https://www.instagram.com/p/BFktVYPinKQ/",
+      "Title": "Holographic Dark Moon Necklace",
+      "Description": "Not sure if I\u0027ll be making more, get it while I have it in the store.",
+      "Ratings": null,
+      "price": 1299.49
+    },
+    {
+      "Id": "selinazawacki-shirt",
+      "Maker": "selinazawacki",
+      "img": "https://marketplace-image.gazin.com.br/gazin-marketplace/unsafe//midias/imagens/2020/05/purificador-ibbl-fr600-speciale-092005391127.jpg?fm=pjpg",
+      "Url": "https://www.instagram.com/p/BEXlpiZCnJ3",
+      "Title": "Floppy Crop",
+      "Description": "Used up the Diskette fabric today to make 2 of these crops.",
+      "Ratings": null,
+      "price": 449.11
+    }
+  ]
+}

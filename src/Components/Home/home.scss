@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+.homePage__wrapper {
+  width: 100%;
+  height: auto;
+  margin-top: 5rem;
+  .home__heroSection {
+    width: 100%;
+    .bannerOne__Container {
+      cursor: pointer;
+      width: 100%;
+      overflow: hidden;
+      background-color: black;
+      margin: 1rem auto;
+      padding: 2rem 0;
+      .banner__OneImage {
+        width: 100%;
+        object-fit: contain;
+        transition: transform 0.4s;
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+  .homePage__cardsRow {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 1rem;
+    .homePage__cardsRow__cardOne,
+    .homePage__cardsRow__cardTwo,
+    .homePage__cardsRow__cardThree {
+      cursor: pointer;
+      padding: 0.2rem, 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 20%;
+      height: 8rem;
+      border-radius: 0.5rem;
+      background-color: rgb(240, 234, 234);
+      margin-right: 0.7rem;
+      .pay__logo {
+        opacity: 0.7;
+      }
+      span {
+        font-family: "Nunito", sans-serif;
+      }
+    }
+    .homePage__cardsRow__cardThree {
+      flex: 1;
+      background-color: #ff931d;
+      .pay__logo {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .homePage__wrapper {
+    width: 100vw;
+    margin-top: 10rem;
+    .home__heroSection {
+      width: 100vw;
+      .bannerOne__Container {
+        cursor: pointer;
+        width: 100vw;
+        overflow: hidden;
+        background-color: black;
+        margin: 1rem auto;
+        padding: 2rem 0;
+        .banner__OneImage {
+          width: 100vw;
+          object-fit: contain;
+          transition: transform 0.4s;
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+    .homePage__cardsRow {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .homePage__cardsRow__cardOne,
+      .homePage__cardsRow__cardTwo,
+      .homePage__cardsRow__cardThree {
+        margin-bottom: 1rem;
+        padding: 1rem, 1rem;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .pay__logo {
+          opacity: 0.7;
+        }
+        span {
+          font-family: "Nunito", sans-serif;
+        }
+      }
+      .homePage__cardsRow__cardThree {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: #ff931d;
+        .pay__logo {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

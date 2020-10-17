@@ -1,0 +1,431 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.authPage__Wrapper {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  .wrapper {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 8rem;
+    width: 42%;
+    height: 33.5rem;
+    .alreadyRegistered {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      font-weight: 550;
+    }
+    .regiter__InfoSpan {
+      font-size: 0.85rem;
+      color: black;
+      opacity: 0.8;
+    }
+    .newCustomer {
+      font-family: "Open Sans", sans-serif;
+      display: flex;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      span {
+        margin-left: 0.5rem;
+      }
+    }
+    button {
+      margin-top: 1rem;
+      width: 100%;
+      height: 2.7rem;
+      align-self: center;
+      border-radius: 0.4rem;
+      background-color: rgb(107, 183, 11);
+      opacity: 0.85;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 550;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        background-color: white;
+        border: 2px solid rgb(107, 183, 11);
+        color: rgb(107, 183, 11);
+      }
+    }
+
+    .signIn__form {
+      .fireErrors {
+        padding: 0.5rem;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        background-color: red;
+        font-weight: 550;
+        color: white;
+        font-family: "Open Sans", sans-serif;
+        border-radius: 0.3rem;
+      }
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        label {
+          margin-top: 1rem;
+          font-size: 0.8rem;
+          color: black;
+          opacity: 0.8;
+        }
+        input {
+          padding: 0.5rem;
+          margin-top: 0.3rem;
+          width: 100%;
+          height: 2rem;
+          border: 1px solid rgb(228, 220, 220);
+          color: rgb(124, 116, 116);
+          font-size: 1rem;
+          border-radius: 0.2rem;
+          opacity: 0.5rem;
+        }
+      }
+    }
+    .regiter__InfoSpan {
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .authPage__Wrapper {
+    .wrapper {
+      width: 46%;
+      margin-top: 19%;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .authPage__Wrapper {
+    .wrapper {
+      width: 58%;
+      margin-top: 42%;
+    }
+  }
+}
+@media only screen and (max-width: 648px) {
+  .authPage__Wrapper {
+    .wrapper {
+      width: 62%;
+      margin-top: 48%;
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .authPage__Wrapper {
+    .wrapper {
+      margin-top: 50%;
+      width: 64%;
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .authPage__Wrapper {
+    .wrapper {
+      width: 65%;
+      margin-top: 62%;
+      .alreadyRegistered {
+        margin-top: 1rem;
+        font-size: 0.7rem;
+        font-weight: 550;
+      }
+      .regiter__InfoSpan {
+        font-size: 0.7rem;
+        color: black;
+        opacity: 0.8;
+      }
+      button {
+        margin-top: 1rem;
+        width: 100%;
+        height: 2.2rem;
+        align-self: center;
+        border-radius: 0.4rem;
+        background-color: rgb(107, 183, 11);
+        opacity: 0.85;
+        color: white;
+        font-size: 0.6rem;
+        font-weight: 450;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          background-color: white;
+          border: 2px solid rgb(107, 183, 11);
+          color: rgb(107, 183, 11);
+        }
+      }
+      .signIn__form {
+        .fireErrors {
+          padding: 0.5rem;
+          margin-top: 1rem;
+          font-size: 0.6rem;
+          background-color: red;
+          font-weight: 550;
+          color: white;
+          font-family: "Open Sans", sans-serif;
+          border-radius: 0.3rem;
+        }
+        form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          label {
+            margin-top: 1rem;
+            font-size: 0.7rem;
+            color: black;
+            opacity: 0.8;
+          }
+          input {
+            padding: 0.5rem;
+            margin-top: 0.3rem;
+            width: 100%;
+            height: 1.8rem;
+            border: 1px solid rgb(228, 220, 220);
+            color: rgb(124, 116, 116);
+            font-size: 0.75rem;
+            border-radius: 0.2rem;
+            opacity: 0.5rem;
+          }
+        }
+      }
+      .regiter__InfoSpan {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 450px) {
+  .authPage__Wrapper {
+    .wrapper {
+      width: 72%;
+      .alreadyRegistered {
+        margin-top: 1rem;
+        font-size: 0.65rem;
+        font-weight: 550;
+      }
+      .regiter__InfoSpan {
+        font-size: 0.65rem;
+        color: black;
+        opacity: 0.8;
+      }
+      button {
+        margin-top: 1rem;
+        width: 100%;
+        height: 2.2rem;
+        align-self: center;
+        border-radius: 0.4rem;
+        background-color: rgb(107, 183, 11);
+        opacity: 0.85;
+        color: white;
+        font-size: 0.65rem;
+        font-weight: 450;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          background-color: white;
+          border: 2px solid rgb(107, 183, 11);
+          color: rgb(107, 183, 11);
+        }
+      }
+      .signIn__form {
+        .fireErrors {
+          padding: 0.5rem;
+          margin-top: 1rem;
+          font-size: 0.65rem;
+          background-color: red;
+          font-weight: 550;
+          color: white;
+          font-family: "Open Sans", sans-serif;
+          border-radius: 0.3rem;
+        }
+        form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          label {
+            margin-top: 1rem;
+            font-size: 0.65rem;
+            color: black;
+            opacity: 0.8;
+          }
+          input {
+            padding: 0.5rem;
+            margin-top: 0.3rem;
+            width: 100%;
+            height: 1.8rem;
+            border: 1px solid rgb(228, 220, 220);
+            color: rgb(124, 116, 116);
+            font-size: 0.65rem;
+            border-radius: 0.2rem;
+            opacity: 0.5rem;
+          }
+        }
+      }
+      .regiter__InfoSpan {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 400px) {
+  .authPage__Wrapper {
+    .wrapper {
+      width: 75%;
+      margin-top: 72%;
+      height: 27rem;
+      .alreadyRegistered {
+        margin-top: 1rem;
+        font-size: 0.6rem;
+        font-weight: 550;
+      }
+      .regiter__InfoSpan {
+        font-size: 0.65rem;
+        color: black;
+        opacity: 0.8;
+      }
+      button {
+        margin-top: 1rem;
+        width: 100%;
+        height: 1.7rem;
+        align-self: center;
+        border-radius: 0.4rem;
+        background-color: rgb(107, 183, 11);
+        opacity: 0.85;
+        color: white;
+        font-size: 0.6rem;
+        font-weight: 450;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          background-color: white;
+          border: 2px solid rgb(107, 183, 11);
+          color: rgb(107, 183, 11);
+        }
+      }
+      .signIn__form {
+        .fireErrors {
+          padding: 0.5rem;
+          margin-top: 1rem;
+          font-size: 0.6rem;
+          background-color: red;
+          font-weight: 550;
+          color: white;
+          font-family: "Open Sans", sans-serif;
+          border-radius: 0.3rem;
+        }
+        form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          label {
+            margin-top: 1rem;
+            font-size: 0.6rem;
+            color: black;
+            opacity: 0.8;
+          }
+          input {
+            padding: 0.5rem;
+            margin-top: 0.3rem;
+            width: 100%;
+            height: 1.5rem;
+            border: 1px solid rgb(228, 220, 220);
+            color: rgb(124, 116, 116);
+            font-size: 0.6rem;
+            border-radius: 0.2rem;
+            opacity: 0.5rem;
+          }
+        }
+      }
+      .regiter__InfoSpan {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 340px) {
+  .authPage__Wrapper {
+    .wrapper {
+      width: 75%;
+      margin-top: 82%;
+      height: 27rem;
+      .alreadyRegistered {
+        margin-top: 1rem;
+        font-size: 0.6rem;
+        font-weight: 550;
+      }
+      .regiter__InfoSpan {
+        font-size: 0.65rem;
+        color: black;
+        opacity: 0.8;
+      }
+      button {
+        margin-top: 1rem;
+        width: 100%;
+        height: 1.7rem;
+        align-self: center;
+        border-radius: 0.4rem;
+        background-color: rgb(107, 183, 11);
+        opacity: 0.85;
+        color: white;
+        font-size: 0.6rem;
+        font-weight: 450;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          background-color: white;
+          border: 2px solid rgb(107, 183, 11);
+          color: rgb(107, 183, 11);
+        }
+      }
+      .signIn__form {
+        .fireErrors {
+          padding: 0.5rem;
+          margin-top: 1rem;
+          font-size: 0.6rem;
+          background-color: red;
+          font-weight: 550;
+          color: white;
+          font-family: "Open Sans", sans-serif;
+          border-radius: 0.3rem;
+        }
+        form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          label {
+            margin-top: 1rem;
+            font-size: 0.6rem;
+            color: black;
+            opacity: 0.8;
+          }
+          input {
+            padding: 0.5rem;
+            margin-top: 0.3rem;
+            width: 100%;
+            height: 1.5rem;
+            border: 1px solid rgb(228, 220, 220);
+            color: rgb(124, 116, 116);
+            font-size: 0.6rem;
+            border-radius: 0.2rem;
+            opacity: 0.5rem;
+          }
+        }
+      }
+      .regiter__InfoSpan {
+        margin-top: 1rem;
+      }
+    }
+  }
+}

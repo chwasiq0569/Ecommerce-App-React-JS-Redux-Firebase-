@@ -1,0 +1,890 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.emptyCartText {
+  margin-top: 8rem;
+  font-size: 1.5rem;
+  font-family: "Nunito", sans-serif;
+  text-align: center;
+}
+.hideStatus {
+  display: none;
+}
+.place__Order {
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .place__OrderBtn {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 98%;
+    height: 98%;
+    background-color: rgb(107, 183, 11);
+    font-size: 1.5rem;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+  }
+}
+.emptyCart__Wrapper {
+  width: 55rem;
+  height: 100%;
+  border: 1px solid blue;
+  .main__Container {
+    border: 1px solid red;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-family: "Nunito", sans-serif;
+      font-size: 2.2rem;
+    }
+  }
+}
+.cartText {
+  font-size: 5rem;
+  font-family: "Nunito", sans-serif;
+  text-decoration: underline;
+  margin-bottom: 1.8rem;
+}
+.cartPage__Wrapper {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  .cartText {
+    font-size: 5rem;
+    font-family: "Nunito", sans-serif;
+    text-decoration: underline;
+    margin-bottom: 1.8rem;
+  }
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 6rem;
+  justify-content: center;
+  align-items: center;
+  .innerContainer {
+    display: flex;
+    .cart__Wrapper {
+      margin: 0.5rem;
+      width: 65%;
+      display: flex;
+      flex-direction: column;
+      .individualItem {
+        border: 1px solid rgb(228, 221, 221);
+        width: 100%;
+        display: flex;
+        .individualItem__Img {
+          width: 20%;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+        .individualItem__Info {
+          flex: 1;
+          display: flex;
+          .other__Info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            .inStock {
+              margin-top: 0.8rem;
+              color: red;
+              font-family: "Nunito", sans-serif;
+            }
+            .title__Container {
+              .item__title {
+                font-family: "Nunito", sans-serif;
+                font-size: 1.5rem;
+                font-weight: 700;
+              }
+            }
+            .qtyController {
+              margin-top: 1rem;
+              width: auto;
+              display: flex;
+              .increaseQty,
+              .decreaseQty,
+              .qty {
+                font-family: "Nunito", sans-serif;
+                background-color: #fe9928;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 2rem;
+                height: 2rem;
+                font-weight: 600;
+                font-size: 1.2rem;
+                color: white;
+              }
+              .qty {
+                color: BLACK;
+                font-size: 1rem;
+                background-color: transparent;
+                border-top: 2px solid #fe9928;
+                border-bottom: 2px solid #fe9928;
+              }
+            }
+          }
+          .price__Info {
+            width: 15%;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            .item_price {
+              font-family: "Nunito", sans-serif;
+              font-size: 1rem;
+              font-weight: 700;
+              color: #5642ff;
+              opacity: 0.7;
+            }
+            .binIcon {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .Receipt {
+      margin: 0.5rem;
+      width: 30%;
+      height: 22rem;
+      background-color: #f7f7f7;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      .orderSumry {
+        font-family: "Open Sans", sans-serif;
+        font-size: 0.9rem;
+        opacity: 0.9;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid rgb(219, 211, 211);
+        padding-bottom: 1rem;
+      }
+      .orderInfo {
+        opacity: 0.7;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        font-family: "Open Sans", sans-serif;
+        padding-bottom: 1rem;
+        .price {
+          font-weight: 600;
+        }
+      }
+      .freight {
+        opacity: 0.7;
+        border-bottom: 1px solid rgb(219, 211, 211);
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        font-family: "Open Sans", sans-serif;
+      }
+      .totalDiv {
+        display: flex;
+        justify-content: space-between;
+        font-family: "Open Sans", sans-serif;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        opacity: 0.7;
+        .amount {
+          font-weight: 600;
+        }
+      }
+      button {
+        cursor: pointer;
+        width: 98%;
+        height: 3rem;
+        background-color: rgb(107, 183, 11);
+        font-size: 0.9rem;
+        font-family: "Poppins", sans-serif;
+        font-weight: 550;
+        border-radius: 5px;
+        color: white;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          background-color: #f7f7f7;
+          border: 2px solid rgb(107, 183, 11);
+          color: rgb(107, 183, 11);
+        }
+      }
+    }
+    .inCash {
+      opacity: 0.7;
+      align-self: flex-end;
+      border-bottom: 1px solid rgb(219, 211, 211);
+      font-family: "Open Sans", sans-serif;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      font-weight: 600;
+    }
+  }
+}
+
+@media only screen and (max-width: 1014px) {
+  .cartPage__Wrapper {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    .cartText {
+      font-size: 5rem;
+      font-family: "Nunito", sans-serif;
+      text-decoration: underline;
+      margin-bottom: 1.8rem;
+    }
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 6rem;
+    justify-content: center;
+    align-items: center;
+    .innerContainer {
+      display: flex;
+      width: 100%;
+      .cart__Wrapper {
+        margin: 0.5rem;
+        width: 65%;
+        display: flex;
+        flex-direction: column;
+        .individualItem {
+          border: 1px solid rgb(228, 221, 221);
+          width: 100%;
+          display: flex;
+          .individualItem__Img {
+            width: 20%;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+          .individualItem__Info {
+            flex: 1;
+            display: flex;
+            .other__Info {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              padding: 1rem;
+              .inStock {
+                margin-top: 0.8rem;
+                color: red;
+                font-family: "Nunito", sans-serif;
+              }
+              .title__Container {
+                .item__title {
+                  font-family: "Nunito", sans-serif;
+                  font-size: 1.2rem;
+                  font-weight: 700;
+                }
+              }
+              .qtyController {
+                margin-top: 1rem;
+                width: auto;
+                display: flex;
+                .increaseQty,
+                .decreaseQty,
+                .qty {
+                  font-family: "Nunito", sans-serif;
+                  background-color: #fe9928;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  width: 2rem;
+                  height: 2rem;
+                  font-weight: 600;
+                  font-size: 1rem;
+                  color: white;
+                }
+                .qty {
+                  color: BLACK;
+                  font-size: 1rem;
+                  background-color: transparent;
+                  border-top: 2px solid #fe9928;
+                  border-bottom: 2px solid #fe9928;
+                }
+              }
+            }
+            .price__Info {
+              width: 15%;
+              padding: 1rem;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              align-items: center;
+              .item_price {
+                font-family: "Nunito", sans-serif;
+                font-size: 0.8rem;
+                font-weight: 700;
+                color: #5642ff;
+                opacity: 0.7;
+              }
+              .binIcon {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+      .Receipt {
+        margin: 0.5rem;
+        width: 30%;
+        height: 22rem;
+        background-color: #f7f7f7;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        .orderSumry {
+          font-family: "Open Sans", sans-serif;
+          font-size: 0.9rem;
+          opacity: 0.9;
+          font-weight: 600;
+          margin-bottom: 1rem;
+          border-bottom: 1px solid rgb(219, 211, 211);
+          padding-bottom: 1rem;
+        }
+        .orderInfo {
+          opacity: 0.7;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1rem;
+          font-family: "Open Sans", sans-serif;
+          padding-bottom: 1rem;
+          .price {
+            font-weight: 600;
+          }
+        }
+        .freight {
+          opacity: 0.7;
+          border-bottom: 1px solid rgb(219, 211, 211);
+          margin-bottom: 1rem;
+          padding-bottom: 1rem;
+          font-family: "Open Sans", sans-serif;
+        }
+        .totalDiv {
+          display: flex;
+          justify-content: space-between;
+          font-family: "Open Sans", sans-serif;
+          margin-bottom: 1rem;
+          padding-bottom: 1rem;
+          opacity: 0.7;
+          .amount {
+            font-weight: 600;
+          }
+        }
+        button {
+          width: 98%;
+          height: 3rem;
+          background-color: rgb(107, 183, 11);
+          font-size: 0.9rem;
+          font-family: "Poppins", sans-serif;
+          font-weight: 550;
+          border-radius: 5px;
+        }
+      }
+      .inCash {
+        opacity: 0.7;
+        align-self: flex-end;
+        border-bottom: 1px solid rgb(219, 211, 211);
+        font-family: "Open Sans", sans-serif;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        font-weight: 600;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 780px) {
+  .cartPage__Wrapper {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    .cartText {
+      font-size: 5rem;
+      font-family: "Nunito", sans-serif;
+      text-decoration: underline;
+      margin-bottom: 1.8rem;
+    }
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 6rem;
+    justify-content: center;
+    align-items: center;
+    .innerContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      .cart__Wrapper {
+        margin: 0.5rem;
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        .individualItem {
+          border: 1px solid rgb(228, 221, 221);
+          width: 100%;
+          display: flex;
+          .individualItem__Img {
+            width: 20%;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+          .individualItem__Info {
+            flex: 1;
+            display: flex;
+            .other__Info {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              padding: 1rem;
+              .inStock {
+                margin-top: 0.8rem;
+                color: red;
+                font-family: "Nunito", sans-serif;
+              }
+              .title__Container {
+                .item__title {
+                  font-family: "Nunito", sans-serif;
+                  font-size: 1.2rem;
+                  font-weight: 700;
+                }
+              }
+              .qtyController {
+                margin-top: 1rem;
+                width: auto;
+                display: flex;
+                .increaseQty,
+                .decreaseQty,
+                .qty {
+                  font-family: "Nunito", sans-serif;
+                  background-color: #fe9928;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  width: 2rem;
+                  height: 2rem;
+                  font-weight: 600;
+                  font-size: 1rem;
+                  color: white;
+                }
+                .qty {
+                  color: BLACK;
+                  font-size: 1rem;
+                  background-color: transparent;
+                  border-top: 2px solid #fe9928;
+                  border-bottom: 2px solid #fe9928;
+                }
+              }
+            }
+            .price__Info {
+              width: 15%;
+              padding: 1rem;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              align-items: center;
+              .item_price {
+                font-family: "Nunito", sans-serif;
+                font-size: 0.8rem;
+                font-weight: 700;
+                color: #5642ff;
+                opacity: 0.7;
+              }
+              .binIcon {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+      .Receipt {
+        margin: 0.5rem;
+        width: 95%;
+        height: 22rem;
+        background-color: #f7f7f7;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        .orderSumry {
+          font-family: "Open Sans", sans-serif;
+          font-size: 0.9rem;
+          opacity: 0.9;
+          font-weight: 600;
+          margin-bottom: 1rem;
+          border-bottom: 1px solid rgb(219, 211, 211);
+          padding-bottom: 1rem;
+        }
+        .orderInfo {
+          opacity: 0.7;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1rem;
+          font-family: "Open Sans", sans-serif;
+          padding-bottom: 1rem;
+          .price {
+            font-weight: 600;
+          }
+        }
+        .freight {
+          opacity: 0.7;
+          border-bottom: 1px solid rgb(219, 211, 211);
+          margin-bottom: 1rem;
+          padding-bottom: 1rem;
+          font-family: "Open Sans", sans-serif;
+        }
+        .totalDiv {
+          display: flex;
+          justify-content: space-between;
+          font-family: "Open Sans", sans-serif;
+          margin-bottom: 1rem;
+          padding-bottom: 1rem;
+          opacity: 0.7;
+          .amount {
+            font-weight: 600;
+          }
+        }
+        button {
+          width: 98%;
+          height: 3rem;
+          background-color: rgb(107, 183, 11);
+          font-size: 0.9rem;
+          font-family: "Poppins", sans-serif;
+          font-weight: 550;
+          border-radius: 5px;
+        }
+      }
+      .inCash {
+        opacity: 0.7;
+        align-self: flex-end;
+        border-bottom: 1px solid rgb(219, 211, 211);
+        font-family: "Open Sans", sans-serif;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        font-weight: 600;
+      }
+    }
+  }
+  .emptyCart__Wrapper {
+    .main__Container {
+      h1 {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .cartPage__Wrapper {
+    .cartText {
+      margin-top: 7rem;
+      font-size: 3.7rem;
+      font-family: "Nunito", sans-serif;
+      text-decoration: underline;
+      margin-bottom: 1.8rem;
+    }
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 6rem;
+    justify-content: center;
+    align-items: center;
+    .cart__Wrapper {
+      width: 95%;
+      display: flex;
+      flex-direction: column;
+      .individualItem {
+        border-bottom: 1px solid rgb(228, 221, 221);
+        width: 100%;
+        display: flex;
+        .individualItem__Img {
+          width: 20%;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+        .individualItem__Info {
+          flex: 1;
+          display: flex;
+          .other__Info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            .inStock {
+              margin-top: 0.8rem;
+              color: red;
+              font-family: "Nunito", sans-serif;
+            }
+            .title__Container {
+              .item__title {
+                font-family: "Nunito", sans-serif;
+                font-size: 1rem;
+                font-weight: 700;
+              }
+            }
+            .qtyController {
+              margin-top: 1rem;
+              width: auto;
+              display: flex;
+              .increaseQty,
+              .decreaseQty,
+              .qty {
+                font-family: "Nunito", sans-serif;
+                background-color: #fe9928;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 2rem;
+                height: 2rem;
+                font-weight: 600;
+                font-size: 1.2rem;
+                color: white;
+              }
+              .qty {
+                color: BLACK;
+                font-size: 1rem;
+                background-color: transparent;
+                border-top: 2px solid #fe9928;
+                border-bottom: 2px solid #fe9928;
+              }
+            }
+          }
+          .price__Info {
+            width: 15%;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            .item_price {
+              font-family: "Nunito", sans-serif;
+              font-size: 0.8rem;
+              font-weight: 700;
+              color: #5642ff;
+              opacity: 0.7;
+            }
+            .binIcon {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+  .place__Order {
+    margin-top: 1rem;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .place__OrderBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      width: 98%;
+      height: 98%;
+      background-color: #fe9928;
+      font-size: 1.2rem;
+      font-family: "Nunito", sans-serif;
+      font-weight: 600;
+    }
+  }
+  .emptyCart__Wrapper {
+    width: 100%;
+    height: 100%;
+    .main__Container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        font-family: "Nunito", sans-serif;
+        font-size: 1.6rem;
+      }
+      img {
+        margin: 3rem;
+        object-fit: contain;
+        width: 18rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 390px) {
+  .cartPage__Wrapper {
+    .cartText {
+      margin-top: 7rem;
+      font-size: 3rem;
+      font-family: "Nunito", sans-serif;
+      text-decoration: underline;
+      margin-bottom: 1.5rem;
+    }
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 6rem;
+    justify-content: center;
+    align-items: center;
+    .cart__Wrapper {
+      width: 95%;
+      display: flex;
+      flex-direction: column;
+      .individualItem {
+        border-bottom: 1px solid rgb(228, 221, 221);
+        width: 100%;
+        display: flex;
+        .individualItem__Img {
+          width: 20%;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+        .individualItem__Info {
+          flex: 1;
+          display: flex;
+          .other__Info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            .inStock {
+              margin-top: 0.5rem;
+              font-size: 0.8rem;
+              color: red;
+              font-family: "Nunito", sans-serif;
+            }
+            .title__Container {
+              .item__title {
+                font-family: "Nunito", sans-serif;
+                font-size: 0.8rem;
+                font-weight: 600;
+              }
+            }
+            .qtyController {
+              margin-top: 0.5rem;
+              width: auto;
+              display: flex;
+              .increaseQty,
+              .decreaseQty,
+              .qty {
+                font-family: "Nunito", sans-serif;
+                background-color: #fe9928;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 1.5rem;
+                height: 1.5rem;
+                font-weight: 600;
+                font-size: 1rem;
+                color: white;
+              }
+              .qty {
+                color: BLACK;
+                font-size: 0.9rem;
+                background-color: transparent;
+                border-top: 2px solid #fe9928;
+                border-bottom: 2px solid #fe9928;
+              }
+            }
+          }
+          .price__Info {
+            width: 15%;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            .item_price {
+              font-family: "Nunito", sans-serif;
+              font-size: 0.8rem;
+              font-weight: 700;
+              color: #5642ff;
+              opacity: 0.7;
+            }
+            .binIcon {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+  .place__Order {
+    margin-top: 1rem;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .place__OrderBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      width: 98%;
+      height: 75%;
+      background-color: #fe9928;
+      font-size: 1rem;
+      font-family: "Nunito", sans-serif;
+      font-weight: 600;
+    }
+  }
+  .emptyCart__Wrapper {
+    width: 100%;
+    height: 100%;
+    .main__Container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        font-family: "Nunito", sans-serif;
+        font-size: 1.6rem;
+      }
+      img {
+        margin: 3rem;
+        object-fit: contain;
+        width: 18rem;
+      }
+    }
+  }
+  .emptyCart__Wrapper {
+    .main__Container {
+      h1 {
+        font-size: 0.5rem;
+      }
+    }
+  }
+}
