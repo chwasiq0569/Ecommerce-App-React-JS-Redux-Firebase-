@@ -73,7 +73,6 @@ const IndividualProduct = (props) => {
           </div>
         </div>
         <div className="price__Info">
-          {/* <p className="item_price">Rs: ${props.items.price}</p> */}
           <CurrencyFormat
             decimalScale={2}
             value={props.items.price}
@@ -83,12 +82,10 @@ const IndividualProduct = (props) => {
             renderText={(value) => <p className="item_price">Rs: {value}</p>}
           />
           <div className="binIcon">
-            {/* <button > */}
             <RiDeleteBin6Line
               size="1.8rem"
               onClick={() => removeFromCart(props.items)}
             />
-            {/* </button> */}
           </div>
         </div>
       </div>

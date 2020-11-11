@@ -76,7 +76,6 @@ const Cart = (props) => {
               renderText={(value) => <p className="amount">Price: {value}</p>}
             />
           </div>
-          {/* <p className="inCash">Rs $ 7,430.27 in cash at the ticket</p> */}
           <CurrencyFormat
             decimalScale={2}
             value={findSubTotal(props.cart_Items.cartItems)}

@@ -102,9 +102,25 @@
     color: #646981;
     font-size: 0.9rem;
   }
+  .githubRepo {
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.7rem;
+    margin-top: -0.75rem;
+    color: #646981;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    &:hover {
+      color: black;
+      text-decoration: underline;
+    }
+  }
 }
 
 @media only screen and (max-width: 780px) {
+  .githubRepo {
+    display: none;
+  }
   .footer__Wrapper {
     margin-top: 3rem;
     overflow: hidden;
@@ -154,7 +170,6 @@
         margin-bottom: 1rem;
         border-bottom: 1px solid rgb(228, 224, 224);
         display: flex;
-        // align-items: center;
         justify-content: center;
         text-align: center;
         width: 90%;
@@ -213,6 +228,7 @@
       }
     }
     .footer__Bottom {
+      cursor: pointer;
       font-family: "Open Sans", sans-serif;
       padding-left: 2.5rem;
       padding-right: 2.5rem;

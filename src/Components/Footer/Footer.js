@@ -98,6 +98,7 @@ const Footer = () => {
           082 SN - Centro - CEP: 87485000 - Douradina-PR
         </span>
       </div>
+      <p onClick={()=> window.open("https://github.com/chwasiq0569/Ecommerce-App-React-JS-Redux-Firebase-.git", "_blank")} className="githubRepo" >Click to See Github Repo</p>
     </div>
   );
 };
