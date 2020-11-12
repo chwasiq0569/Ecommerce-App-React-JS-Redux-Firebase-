@@ -20,7 +20,7 @@ const Header = (props) => {
       if (user) {
         console.log("loggedIn");
         props.check_User(user);
-        setShowsignInOrOut(false); //if false to ShowSignOut
+        setShowsignInOrOut(false); 
       } else {
         props.check_User(user);
         console.log("loggedOut");
