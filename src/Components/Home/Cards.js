@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Card from "./utils/Card";
+import Card from "./Homeutils/Card";
 import ProductsData from "../../products.json";
 import "./cards.scss";
 const Cards = () => {

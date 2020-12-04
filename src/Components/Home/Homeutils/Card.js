@@ -7,51 +7,39 @@ import {
   remove_from_cart,
   increase_quantity,
 } from "../../../Redux/Actions/cartActions";
-import Button from "./Button";
+import Button from "../../utils/Button";
 import {
   notifySuccess,
   notifyDanger,
   addToCart,
   removeFromCart,
-} from "./utils";
+  checkItemsStatus,
+} from "../../utils/utils";
 
 const Card = (props) => {
+  const { data } = props;
   const [handleBtnCondition, setHandleBtnCondition] = useState(true);
   //if handleBtnCondition is true render addToCart Btn else render removeFromCart Btn
-  const checkItemsStatus = (props) => {
-    props.cart_Items.cart.cartItems.forEach((e) => {
-      //if title of item in cart is equals to title of any of (total items)
-      //then render removeToCartBtn to that items whom title is matched
-      //if we dont do this then after adding items to cart if we go to another route and when we again jump back to homepage it will not render removeToCart Btn for items that are in the cart
-      if (e.Id === props.data?.Id) {
-        setHandleBtnCondition(false);
-      }
-    });
-  };
 
   useEffect(() => {
     //loop thru the items in the cart
-    checkItemsStatus(props);
+    checkItemsStatus(props, data, setHandleBtnCondition);
   }, []);
 
   return (
     <div className="singlecard">
-      <Link className="Links" to={`/home/${props.data.Id}`}>
+      <Link className="Links" to={`/home/${data.Id}`}>
         <div className="productImage">
-          <img
-            className="card__productImage"
-            src={props.data.img}
-            alt={props.data.Title}
-          />
+          <img className="card__productImage" src={data.img} alt={data.Title} />
         </div>
       </Link>
       <div className="productInfo">
-        <Link className="Links" to={`/home/${props.data.Id}`}>
-          <p className="productTitle">{props.data.Title}</p>
-          <p className="productDesc">{props.data.Description}</p>
+        <Link className="Links" to={`/home/${data.Id}`}>
+          <p className="productTitle">{data.Title}</p>
+          <p className="productDesc">{data.Description}</p>
         </Link>
         <div className="flexPriceAndBtn">
-          <p className="productPrice">Price: ${props.data.price}</p>
+          <p className="productPrice">Price: ${data.price}</p>
           {/* // if handleBtnCondition is true render addToCart Btn else render removeFromCart Btn */}
           <Button
             className={"addToCartBtn"}
@@ -60,11 +48,11 @@ const Card = (props) => {
               handleBtnCondition
                 ? () => {
                     setHandleBtnCondition(false);
-                    addToCart(props.data, props);
+                    addToCart(data, props);
                   }
                 : () => {
                     setHandleBtnCondition(true);
-                    removeFromCart(props.data, props);
+                    removeFromCart(data, props);
                   }
             }
           />

@@ -7,13 +7,20 @@ import { add_to_cart, remove_from_cart } from "../../Redux/Actions/cartActions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
-import { notifyDanger, notifySuccess } from "./../Home/utils/utils";
+import {
+  notifyDanger,
+  notifySuccess,
+  addToCart,
+  removeFromCart,
+  checkItemsStatus,
+} from "../utils/utils";
+import Button from "../utils/Button";
 
 toast.configure();
 const ProductPage = (props) => {
   const [item, setItem] = useState(null);
+  const [handleBtnCondition, setHandleBtnCondition] = useState(true); //when we will  render add to Cat Btn
 
-  console.log("props.match: ", props.match);
   let data = Products.arrayOfProducts.find(
     //extract item whom title is equals to clicked items Title
     (item) => item.Id === props.match.params.Id
@@ -25,37 +32,8 @@ const ProductPage = (props) => {
   }, []);
 
   useEffect(() => {
-    console.log("item: ", item);
-    props.cart_Items.cart.cartItems.forEach((e) => {
-      if (e.Title === item?.Title) {
-        setHandleBtnCondition(false);
-      }
-    });
+    checkItemsStatus(props, item, setHandleBtnCondition);
   }, [item]);
-  // console.log("item: ", item);
-
-  const [handleBtnCondition, setHandleBtnCondition] = useState(true); //when we will  render add to Cat Btn
-
-  const addToCart = (data) => {
-    notifySuccess("Item is Added To Cart.");
-    setHandleBtnCondition(false);
-    props.add_To_Cart({
-      Id: data.Id,
-      Title: data.Title,
-      desc: data.Description,
-      price: data.price,
-      img: data.img,
-      qty: 1,
-    });
-  };
-  const removeFromCart = (data) => {
-    setHandleBtnCondition(true);
-    let newData = props.cart_Items.cart.cartItems.filter(
-      (item) => item.Id !== data.Id
-    );
-    props.remove_From_Cart(newData);
-    notifyDanger("Item Removed From Cart.");
-  };
 
   return (
     <motion.div
@@ -66,12 +44,11 @@ const ProductPage = (props) => {
     >
       <div className="wrapper">
         <div className="leftSide">
-          <img src={item?.img} alt={item?.img} />
+          <img src={item?.img} alt={item?.Title} />
         </div>
         <div className="rightSide">
           <h1 className="product__Title">{item?.Title}</h1>
           <p className="product__description">{item?.Description}</p>
-          {/* <p className="product__Price">Price ${item?.price}</p> */}
           <CurrencyFormat
             decimalScale={2}
             value={item?.price}
@@ -82,15 +59,21 @@ const ProductPage = (props) => {
               <p className="product__Price">Price: {value}</p>
             )}
           />
-          {handleBtnCondition ? (
-            <button className="addToCart" onClick={() => addToCart(item)}>
-              ADD TO CART
-            </button>
-          ) : (
-            <button className="addToCart" onClick={() => removeFromCart(item)}>
-              Remove From Cart
-            </button>
-          )}
+          <Button
+            className={"addToCart"}
+            text={handleBtnCondition ? "Add To Cart" : "Remove From Cart"}
+            func={
+              handleBtnCondition
+                ? () => {
+                    setHandleBtnCondition(false);
+                    addToCart(item, props);
+                  }
+                : () => {
+                    setHandleBtnCondition(true);
+                    removeFromCart(item, props);
+                  }
+            }
+          />
         </div>
       </div>
     </motion.div>

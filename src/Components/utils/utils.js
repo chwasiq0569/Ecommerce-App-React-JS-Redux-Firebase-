@@ -50,3 +50,14 @@ export const removeFromCart = (item, props) => {
   //here function is dispatched to remove Item
   props.remove_From_Cart(newData);
 };
+
+export const checkItemsStatus = (props, data, setHandleBtnCondition) => {
+  props.cart_Items.cart.cartItems.forEach((e) => {
+    //if Id of item in cart is equals to Id of any of (total items)
+    //then render removeToCartBtn to that items whom Id is matched
+    //if we dont do this then after adding items to cart if we go to another route and when we again jump back to homepage it will not render removeToCart Btn for items that are in the cart
+    if (e.Id === data?.Id) {
+      setHandleBtnCondition(false);
+    }
+  });
+};
