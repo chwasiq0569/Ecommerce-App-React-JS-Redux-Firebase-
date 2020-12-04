@@ -8,14 +8,17 @@ import {
   increase_quantity,
 } from "../../../Redux/Actions/cartActions";
 import Button from "./Button";
-import { notifySuccess, notifyDanger } from "./utils";
+import {
+  notifySuccess,
+  notifyDanger,
+  addToCart,
+  removeFromCart,
+} from "./utils";
 
 const Card = (props) => {
   const [handleBtnCondition, setHandleBtnCondition] = useState(true);
-  //if handleBtnCondition is true render addToCart Btn
-  // console.log("props: ", props.cart_Items);
-  useEffect(() => {
-    //loop thru the items in the cart
+  //if handleBtnCondition is true render addToCart Btn else render removeFromCart Btn
+  const checkItemsStatus = (props) => {
     props.cart_Items.cart.cartItems.forEach((e) => {
       //if title of item in cart is equals to title of any of (total items)
       //then render removeToCartBtn to that items whom title is matched
@@ -24,32 +27,12 @@ const Card = (props) => {
         setHandleBtnCondition(false);
       }
     });
+  };
+
+  useEffect(() => {
+    //loop thru the items in the cart
+    checkItemsStatus(props);
   }, []);
-
-  const addToCart = (item) => {
-    notifySuccess("Item is Added to Cart");
-    setHandleBtnCondition(false);
-    //dispatching function add_To_Cart to update state
-    props.add_To_Cart({
-      Id: item.Id,
-      Title: item.Title,
-      desc: item.Description,
-      price: item.price,
-      img: item.img,
-      qty: 1,
-    });
-  };
-
-  const removeFromCart = (item) => {
-    notifyDanger("Item is Removed From Cart");
-    //on handleBtnCondition === true we will render addToCart Btn
-    setHandleBtnCondition(true);
-    let newData = props.cart_Items.cart.cartItems.filter(
-      (cartItem) => cartItem.Id !== item.Id
-    );
-    //here function is dispatched to remove Item
-    props.remove_From_Cart(newData);
-  };
 
   return (
     <div className="singlecard">
@@ -75,8 +58,14 @@ const Card = (props) => {
             text={handleBtnCondition ? "Add To Cart" : "Remove From Cart"}
             func={
               handleBtnCondition
-                ? () => addToCart(props.data)
-                : () => removeFromCart(props.data)
+                ? () => {
+                    setHandleBtnCondition(false);
+                    addToCart(props.data, props);
+                  }
+                : () => {
+                    setHandleBtnCondition(true);
+                    removeFromCart(props.data, props);
+                  }
             }
           />
         </div>

@@ -13,7 +13,6 @@ toast.configure();
 const ProductPage = (props) => {
   const [item, setItem] = useState(null);
 
-  // console.log("item?.I: ", item?.I);
   console.log("props.match: ", props.match);
   let data = Products.arrayOfProducts.find(
     //extract item whom title is equals to clicked items Title
@@ -38,6 +37,7 @@ const ProductPage = (props) => {
   const [handleBtnCondition, setHandleBtnCondition] = useState(true); //when we will  render add to Cat Btn
 
   const addToCart = (data) => {
+    notifySuccess("Item is Added To Cart.");
     setHandleBtnCondition(false);
     props.add_To_Cart({
       Id: data.Id,
@@ -47,7 +47,6 @@ const ProductPage = (props) => {
       img: data.img,
       qty: 1,
     });
-    notifySuccess("Item Added To Cart.");
   };
   const removeFromCart = (data) => {
     setHandleBtnCondition(true);
