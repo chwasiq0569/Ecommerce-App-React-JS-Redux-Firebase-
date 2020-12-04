@@ -19,7 +19,7 @@ import Button from "../utils/Button";
 toast.configure();
 const ProductPage = (props) => {
   const [item, setItem] = useState(null);
-  const [handleBtnCondition, setHandleBtnCondition] = useState(true); //when we will  render add to Cat Btn
+  const [handleBtnCondition, setHandleBtnCondition] = useState(true); //handleBtnCondition true we will  render add to Cart Btn
 
   let data = Products.arrayOfProducts.find(
     //extract item whom title is equals to clicked items Title
