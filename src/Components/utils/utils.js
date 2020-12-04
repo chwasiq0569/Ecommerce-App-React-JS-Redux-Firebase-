@@ -1,6 +1,7 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import fire from "../../Firebase/Firebase";
+import firebase from "firebase";
 
 toast.configure();
 
@@ -66,7 +67,6 @@ export const checkItemsStatus = (props, data, setHandleBtnCondition) => {
 export const check_SignIn = (props, setShowsignInOrOut) => {
   return fire.auth().onAuthStateChanged((user) => {
     if (user) {
-      console.log("loggedIn");
       //updated store if user is logged In then save user to store
       props.check_User(user);
       setShowsignInOrOut(false);
@@ -74,7 +74,6 @@ export const check_SignIn = (props, setShowsignInOrOut) => {
     } else {
       console.log("User: ", user);
       props.check_User(user);
-      console.log("loggedOut");
       setShowsignInOrOut(true);
       return user;
     }
@@ -117,4 +116,48 @@ export const onDecrement = (data, props, actualPrice) => {
     //if item has only 1 quantity
     removeFromCart(data, props);
   }
+};
+
+////
+
+export const signInWithGoogle = (props) => {
+  const base_provider = new firebase.auth.GoogleAuthProvider();
+  firebase
+    .auth()
+    .signInWithPopup(base_provider)
+    .then(function (result) {
+      props.history.push("/payments");
+      notifySuccess("LogIn Sucessfully!");
+    })
+    .catch(function (error) {
+      notifyDanger("Unfortunatly an Error Occured!");
+    });
+};
+
+export const login = (props, email, password, setFireErrors) => {
+  fire
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then(() => {
+      props.history.push("/payments");
+      notifySuccess("LogIn Sucessfully!");
+    })
+    .catch((error) => {
+      setFireErrors(error.message);
+      notifyDanger("Unfortunatly an Error Occured!");
+    });
+};
+
+export const signUp = (props, email, password, setFireErrors) => {
+  fire
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then(() => {
+      props.history.push("/payments");
+      notifySuccess("SignUp Sucessfully!");
+    })
+    .catch(function (error) {
+      setFireErrors(error.message);
+      notifyDanger("Unfortunatly an Error Occured!");
+    });
 };

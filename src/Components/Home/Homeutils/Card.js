@@ -42,6 +42,7 @@ const Card = (props) => {
           <p className="productPrice">Price: ${data.price}</p>
           {/* // if handleBtnCondition is true render addToCart Btn else render removeFromCart Btn */}
           <Button
+            type=""
             className={"addToCartBtn"}
             text={handleBtnCondition ? "Add To Cart" : "Remove From Cart"}
             func={
