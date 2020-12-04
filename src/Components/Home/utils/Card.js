@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import "./card.scss";
 import { Link } from "react-router-dom";
 import {
@@ -9,39 +7,14 @@ import {
   remove_from_cart,
   increase_quantity,
 } from "../../../Redux/Actions/cartActions";
-toast.configure();
+import Button from "./Button";
+import { notifySuccess, notifyDanger } from "./utils";
+
 const Card = (props) => {
-
-
-  const [handleBtnCondition, setHandleBtnCondition] = useState(true); 
-  const [showToast, setShowtoast] = useState(false);
-
-  const notifyAdded = () => {
-    toast.success("Item Added to Cart", {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
-  const notifyRemoved = () => {
-    toast.warn("Item Removed from Cart", {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
- 
-  };
+  const [handleBtnCondition, setHandleBtnCondition] = useState(true);
 
   const addToCart = (data) => {
-    notifyAdded();
+    notifySuccess("Item is Added to Cart");
     setHandleBtnCondition(false);
     props.add_To_Cart({
       Title: data.Title,
@@ -51,8 +24,9 @@ const Card = (props) => {
       qty: 1,
     });
   };
+
   const removeFromCart = (data) => {
-    notifyRemoved();
+    notifyDanger("Item is Removed From Cart");
     console.log("Before Removing Item: ", props.cart_Items.cart.cartItems);
     setHandleBtnCondition(true);
     let newData = props.cart_Items.cart.cartItems.filter(
@@ -88,21 +62,16 @@ const Card = (props) => {
         </Link>
         <div className="flexPriceAndBtn">
           <p className="productPrice">Price: ${props.data.price}</p>
-          {handleBtnCondition ? (
-            <button
-              className="addToCartBtn"
-              onClick={() => addToCart(props.data)}
-            >
-              Add To Cart
-            </button>
-          ) : (
-            <button
-              className="addToCartBtn"
-              onClick={() => removeFromCart(props.data)}
-            >
-              Remove From Cart
-            </button>
-          )}
+          {/* // if handleBtnCondition is true render addToCart Btn else render removeFromCart Btn */}
+          <Button
+            className={"addToCartBtn"}
+            text={handleBtnCondition ? "Add To Cart" : "Remove From Cart"}
+            func={
+              handleBtnCondition
+                ? () => addToCart(props.data)
+                : () => removeFromCart(props.data)
+            }
+          />
         </div>
       </div>
     </div>

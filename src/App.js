@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Header from "./Components/Header/Header";
 import { Switch, Route, Redirect } from "react-router-dom";
@@ -13,6 +13,9 @@ import AuthPage from "./Components/AuthPage/AuthPage";
 import Payments from "./Components/Payments/Payments";
 import { AnimatePresence } from "framer-motion";
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="App">
       <Provider store={store}>

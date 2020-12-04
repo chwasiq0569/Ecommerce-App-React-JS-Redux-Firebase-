@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "./utils/Card";
 import ProductsData from "../../products.json";
 import "./cards.scss";
