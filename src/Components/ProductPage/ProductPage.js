@@ -7,22 +7,24 @@ import { add_to_cart, remove_from_cart } from "../../Redux/Actions/cartActions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
+import { notifyDanger, notifySuccess } from "./../Home/utils/utils";
 
 toast.configure();
 const ProductPage = (props) => {
   const [item, setItem] = useState(null);
+
+  // console.log("item?.I: ", item?.I);
+  console.log("props.match: ", props.match);
   let data = Products.arrayOfProducts.find(
-    (item) => item.Title === props.match.params.productTitle
+    //extract item whom title is equals to clicked items Title
+    (item) => item.Id === props.match.params.Id
   );
-  console.log(data);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     setItem(data);
-    console.log(
-      "props.cart_Items.cart.cartItems: ",
-      props.cart_Items.cart.cartItems
-    );
   }, []);
+
   useEffect(() => {
     console.log("item: ", item);
     props.cart_Items.cart.cartItems.forEach((e) => {
@@ -38,39 +40,22 @@ const ProductPage = (props) => {
   const addToCart = (data) => {
     setHandleBtnCondition(false);
     props.add_To_Cart({
+      Id: data.Id,
       Title: data.Title,
       desc: data.Description,
       price: data.price,
       img: data.img,
       qty: 1,
     });
-    toast.success("Item Added To Cart.", {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    notifySuccess("Item Added To Cart.");
   };
   const removeFromCart = (data) => {
-    console.log("Before Removing Item: ", props.cart_Items.cart.cartItems);
     setHandleBtnCondition(true);
     let newData = props.cart_Items.cart.cartItems.filter(
-      (item) => item.Title !== data.Title
+      (item) => item.Id !== data.Id
     );
     props.remove_From_Cart(newData);
-    console.log("After Removing Item: ", props.cart_Items.cart.cartItems);
-    toast.warn("Item Removed From Cart.", {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    notifyDanger("Item Removed From Cart.");
   };
 
   return (

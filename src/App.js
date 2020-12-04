@@ -22,7 +22,7 @@ function App() {
         <Header />
         <AnimatePresence>
           <Switch>
-            <Route path="/home/:productTitle" component={ProductPage} />
+            <Route path="/home/:Id" component={ProductPage} />
             <Route exact path="/payments" component={Payments} />
             <Route exact path="/auth" component={AuthPage} />
             <Route exact path="/cart" component={Cart} />
