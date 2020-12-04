@@ -126,7 +126,11 @@ export const signInWithGoogle = (props) => {
     .auth()
     .signInWithPopup(base_provider)
     .then(function (result) {
-      props.history.push("/payments");
+      if (props.cart_Items.cart.cartItems.length !== 0) {
+        props.history.push("/payments");
+      } else {
+        props.history.push("/cart");
+      }
       notifySuccess("LogIn Sucessfully!");
     })
     .catch(function (error) {
@@ -139,7 +143,11 @@ export const login = (props, email, password, setFireErrors) => {
     .auth()
     .signInWithEmailAndPassword(email, password)
     .then(() => {
-      props.history.push("/payments");
+      if (props.cart_Items.cart.cartItems.length !== 0) {
+        props.history.push("/payments");
+      } else {
+        props.history.push("/cart");
+      }
       notifySuccess("LogIn Sucessfully!");
     })
     .catch((error) => {
@@ -153,7 +161,11 @@ export const signUp = (props, email, password, setFireErrors) => {
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .then(() => {
-      props.history.push("/payments");
+      if (props.cart_Items.cart.cartItems.length !== 0) {
+        props.history.push("/payments");
+      } else {
+        props.history.push("/cart");
+      }
       notifySuccess("SignUp Sucessfully!");
     })
     .catch(function (error) {

@@ -86,6 +86,7 @@ const AuthPage = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
+    cart_Items: state,
     user: state.user,
   };
 };

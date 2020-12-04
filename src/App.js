@@ -25,20 +25,8 @@ function App(props) {
         <Switch>
           <Route path="/home/:Id" component={ProductPage} />
           <Route exact path="/auth" component={AuthPage} />
-          <Route
-            exact
-            path="/payments"
-            component={
-              //if user is logout && cartItems are not equal to 0 then redirect to payment
-              //if user is login but cartItems === 0 then redirect to HomePage
-              //if user is logout redirect to AuthPage
-              props.user
-                ? props.cart_Items.cart.cartItems.length !== 0
-                  ? Payments
-                  : Home
-                : AuthPage
-            }
-          />
+          <Route exact path="/payments" component={Payments} />
+
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/home" component={Home} />
           <Route path="/not-found" component={NotFoundPage} />
