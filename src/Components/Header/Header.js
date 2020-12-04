@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Logo from "../../images/logoFinal.png";
 import { AiOutlineUser } from "react-icons/ai";
 import { MdShoppingCart } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./header.scss";
 import { check_User } from "../../Redux/Actions/userActions";
 import { ToastContainer, toast } from "react-toastify";
@@ -15,7 +15,8 @@ toast.configure();
 const Header = (props) => {
   //if showsignInOrOut false it will show signOut Btn and otherwise it will render singIn Btn
   const [showsignInOrOut, setShowsignInOrOut] = useState(false);
-
+  // props.history.location.replace("/");
+  console.log("props.history.location: ", props.history.location);
   useEffect(() => {
     const unsubscribe = check_SignIn(props, setShowsignInOrOut);
     return () => {
@@ -43,7 +44,10 @@ const Header = (props) => {
               <div className="siginIn__Div">
                 <span>{props.user?.user?.email}</span>
                 <span
-                  onClick={() => signOut(props, setShowsignInOrOut)}
+                  onClick={() => {
+                    props.history.push("/");
+                    signOut(props, setShowsignInOrOut);
+                  }}
                   className="authSpans"
                 >
                   Sign Out
@@ -86,4 +90,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));
