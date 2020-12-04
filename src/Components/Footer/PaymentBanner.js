@@ -36,8 +36,8 @@ const PaymentBanner = () => {
 
   return (
     <div className="lower__Payment__Banner">
-      {paymentImgsData.map((pd) => (
-        <div className={pd.className}>
+      {paymentImgsData.map((pd, i) => (
+        <div className={pd.className} key={i}>
           <img src={pd.Img} alt={pd.altText} />
         </div>
       ))}

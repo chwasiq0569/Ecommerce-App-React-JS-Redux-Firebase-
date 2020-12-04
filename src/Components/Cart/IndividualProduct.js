@@ -8,43 +8,12 @@ import {
   increase_quantity,
   decrease_quantity,
 } from "../../Redux/Actions/cartActions";
+import { removeFromCart, onIncrement, onDecrement } from "../utils/utils";
+
 const IndividualProduct = (props) => {
+  //props.items.price contains price of individual item
   const [actualPrice, setActualPrice] = useState(props.items.price);
 
-  let arr = [...props.cart_Items.cart.cartItems];
-  const onIncrement = (data) => {
-    arr.filter((item) => {
-      if (item.Title === data.Title) {
-        item.qty = item.qty + 1;
-        item.price = item.qty * actualPrice;
-      }
-    });
-    props.increase_quantity(arr);
-  };
-  const onDecrement = (data) => {
-    if (data.qty > 1) {
-      let arr = [...props.cart_Items.cart.cartItems];
-      arr.filter((item) => {
-        if (item.Title === data.Title) {
-          item.qty = item.qty - 1;
-          item.price = item.price - actualPrice;
-        }
-      });
-      props.decrease_quantity(arr);
-    } else if (data.qty === 1) {
-      removeFromCart(props.items);
-    }
-  };
-
-  const removeFromCart = (data) => {
-    console.log("Before Removing Item: ", props.cart_Items.cart.cartItems);
-    console.log("Removed From Cart: ", data);
-    let newData = props.cart_Items.cart.cartItems.filter(
-      (item) => item.Title !== data.Title
-    );
-    props.remove_From_Cart(newData);
-    console.log("After Removing Item: ", props.cart_Items.cart.cartItems);
-  };
   return (
     <div className="individualItem">
       <div className="individualItem__Img">
@@ -59,14 +28,14 @@ const IndividualProduct = (props) => {
           <div className="qtyController">
             <button
               className="increaseQty"
-              onClick={() => onIncrement(props.items)}
+              onClick={() => onIncrement(props.items, props, actualPrice)}
             >
               +
             </button>
             <p className="qty">{props.items.qty}</p>
             <button
               className="decreaseQty"
-              onClick={() => onDecrement(props.items)}
+              onClick={() => onDecrement(props.items, props, actualPrice)}
             >
               -
             </button>
@@ -84,7 +53,7 @@ const IndividualProduct = (props) => {
           <div className="binIcon">
             <RiDeleteBin6Line
               size="1.8rem"
-              onClick={() => removeFromCart(props.items)}
+              onClick={() => removeFromCart(props.items, props, actualPrice)}
             />
           </div>
         </div>

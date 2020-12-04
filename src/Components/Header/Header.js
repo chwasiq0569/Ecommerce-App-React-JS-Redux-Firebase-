@@ -1,53 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import Logo from "../../images/logoFinal.png";
-import { FiSearch } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
 import { MdShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
-import fire from "../../Firebase/Firebase";
 import "./header.scss";
 import { check_User } from "../../Redux/Actions/userActions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { check_SignIn, signOut } from "../utils/utils";
+import SearchBar from "./SearchBar";
 
 toast.configure();
 const Header = (props) => {
-  let items = props.cart_Items.cart.cartItems;
+  //if showsignInOrOut false it will show signOut Btn and otherwise it will render singIn Btn
   const [showsignInOrOut, setShowsignInOrOut] = useState(false);
+
   useEffect(() => {
-    const unsubscribe = fire.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log("loggedIn");
-        props.check_User(user);
-        setShowsignInOrOut(false); 
-      } else {
-        props.check_User(user);
-        console.log("loggedOut");
-        setShowsignInOrOut(true);
-      }
-    });
+    const unsubscribe = check_SignIn(props, setShowsignInOrOut);
     return () => {
       unsubscribe();
     };
   }, []);
-
-  const signOut = () => {
-    fire.auth().signOut();
-    props.check_User(null);
-    setShowsignInOrOut(true);
-    toast.warn("LogOut Successfull.", {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
-
-  console.log(props.user);
 
   return (
     <div className="header__body">
@@ -57,12 +31,7 @@ const Header = (props) => {
             <img className="logo__png" src={Logo} alt="brand__logo" />
           </Link>
         </div>
-        <div className="header__nav__search">
-          <input className="searchBar" type="search" placeholder="Search" />
-          <button className="searchBar__Btn">
-            <FiSearch color="white" size="1.3rem" />
-          </button>
-        </div>
+        <SearchBar />
         <div className="header__nav__lastCol">
           <div className="lastCol__User">
             <AiOutlineUser color="white" size="2rem" />
@@ -73,7 +42,10 @@ const Header = (props) => {
             ) : (
               <div className="siginIn__Div">
                 <span>{props.user?.user?.email}</span>
-                <span onClick={signOut} className="authSpans">
+                <span
+                  onClick={() => signOut(props, setShowsignInOrOut)}
+                  className="authSpans"
+                >
                   Sign Out
                 </span>
               </div>
@@ -90,7 +62,10 @@ const Header = (props) => {
                 color="white"
                 size="1.7rem"
               />
-              <span className="cartItems">{items.length}</span>
+              {/* length of cartItems array */}
+              <span className="cartItems">
+                {props.cart_Items.cart.cartItems.length}
+              </span>
             </div>
           </Link>
         </div>

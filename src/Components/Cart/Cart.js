@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./cart.scss";
 import IndividualProduct from "./IndividualProduct";
 import { connect } from "react-redux";
-import CurrencyFormat from "react-currency-format";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import Receipt from "./Receipt";
 
 const Cart = (props) => {
-
-  const [freight, setFreight] = useState(108);
-  console.log("props.cart_Items.cartItems: ", props.cart_Items.cartItems);
+  //if hideStatus is true it will render simple text as No items in cart otherwise it will render Cart text
+  //hideStatus check wether cart is empty or not
   const [hideStatus, setHideStatus] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,12 +23,6 @@ const Cart = (props) => {
     func();
   }, [props.cart_Items.cartItems]);
 
-  const findSubTotal = (data) => {
-    let subTotal = 0;
-    data.filter((e) => (subTotal += e.price));
-    return subTotal;
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -45,57 +37,14 @@ const Cart = (props) => {
       )}
       <div className="innerContainer">
         <div className="cart__Wrapper">
-          {props.cart_Items.cartItems.length > 0
+          {/* if cart is not empty it will render cartItems other will it will return null */}
+          {!hideStatus
             ? props.cart_Items.cartItems.map((items) => (
-                <IndividualProduct items={items} key={items.Title} />
+                <IndividualProduct items={items} key={items.Id} />
               ))
             : null}
         </div>
-        <div className={hideStatus ? "hideStatus" : "Receipt"}>
-          <p className="orderSumry">Order Summary</p>
-          <div className="orderInfo">
-            <p>Sub Total</p>
-            <CurrencyFormat
-              decimalScale={2}
-              value={findSubTotal(props.cart_Items.cartItems)}
-              displayType={"text"}
-              thousandSeparator={true}
-              prefix={"$"}
-              renderText={(value) => <p className="price">Price: {value}</p>}
-            />
-          </div>
-          <p className="freight">Freight</p>
-          <div className="totalDiv">
-            <p>Total</p>
-            <CurrencyFormat
-              decimalScale={2}
-              value={findSubTotal(props.cart_Items.cartItems)}
-              displayType={"text"}
-              thousandSeparator={true}
-              prefix={"$"}
-              renderText={(value) => <p className="amount">Price: {value}</p>}
-            />
-          </div>
-          <CurrencyFormat
-            decimalScale={2}
-            value={findSubTotal(props.cart_Items.cartItems)}
-            displayType={"text"}
-            thousandSeparator={true}
-            prefix={"$"}
-            renderText={(value) => (
-              <p className="inCash">Rs {value} in cash at the ticket</p>
-            )}
-          />
-          {props.user.user === null ? (
-            <Link to="/auth">
-              <button>CONTINUE</button>
-            </Link>
-          ) : (
-            <Link to="/payments">
-              <button>CONTINUE</button>
-            </Link>
-          )}
-        </div>
+        <Receipt {...props} hideStatus={hideStatus} />
       </div>
     </motion.div>
   );

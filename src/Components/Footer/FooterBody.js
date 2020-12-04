@@ -42,8 +42,8 @@ const FooterBody = () => {
           <span>Monday to Friday from 8 am to 6 pm</span>
         </div>
       </div>
-      {data.map((d) => (
-        <div className={d.className}>
+      {data.map((d, i) => (
+        <div className={d.className} key={i}>
           <div className="makeRows">
             <span>
               <strong>{d.elem1}</strong>

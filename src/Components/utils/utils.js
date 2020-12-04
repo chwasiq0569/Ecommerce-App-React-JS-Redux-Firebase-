@@ -1,5 +1,6 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import fire from "../../Firebase/Firebase";
 
 toast.configure();
 
@@ -60,4 +61,60 @@ export const checkItemsStatus = (props, data, setHandleBtnCondition) => {
       setHandleBtnCondition(false);
     }
   });
+};
+
+export const check_SignIn = (props, setShowsignInOrOut) => {
+  return fire.auth().onAuthStateChanged((user) => {
+    if (user) {
+      console.log("loggedIn");
+      //updated store if user is logged In then save user to store
+      props.check_User(user);
+      setShowsignInOrOut(false);
+      return user;
+    } else {
+      console.log("User: ", user);
+      props.check_User(user);
+      console.log("loggedOut");
+      setShowsignInOrOut(true);
+      return user;
+    }
+  });
+};
+
+export const signOut = (props, setShowsignInOrOut) => {
+  fire.auth().signOut();
+  //updated store if user does not exist or logout then save null to store
+  props.check_User(null);
+  setShowsignInOrOut(true);
+  notifyDanger("LogOut Successfull.");
+};
+
+export const onIncrement = (data, props, actualPrice) => {
+  //stored cartItems in temporary array
+  let arr = [...props.cart_Items.cart.cartItems];
+  console.log("actualPrice: ", actualPrice);
+  arr.filter((item) => {
+    if (item.Id === data.Id) {
+      item.qty = item.qty + 1;
+      item.price = item.qty * parseInt(actualPrice);
+    }
+  });
+  //updated state
+  props.increase_quantity(arr);
+};
+
+export const onDecrement = (data, props, actualPrice) => {
+  if (data.qty > 1) {
+    let arr = [...props.cart_Items.cart.cartItems];
+    arr.filter((item) => {
+      if (item.Id === data.Id) {
+        item.qty = item.qty - 1;
+        item.price = parseInt(item.price) - parseInt(actualPrice);
+      }
+    });
+    props.decrease_quantity(arr);
+  } else if (data.qty === 1) {
+    //if item has only 1 quantity
+    removeFromCart(data, props);
+  }
 };
