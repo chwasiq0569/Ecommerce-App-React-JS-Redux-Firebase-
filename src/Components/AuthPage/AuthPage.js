@@ -13,8 +13,8 @@ import Form from "./Form";
 
 toast.configure();
 const AuthPage = (props) => {
-  const [email, setEmail] = useState("samsunggrandprimeplus056@gmail.com");
-  const [password, setPassword] = useState("samsunggrandprimeplus056@gmail.com");
+  const [email, setEmail] = useState("dummyUser@gmail.com");
+  const [password, setPassword] = useState("dummyUser@gmail.com");
   const [fireErrors, setFireErrors] = useState("");
   const [showBtn, setShowBtn] = useState(false);
   const [user, setUser] = useState(null);

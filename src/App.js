@@ -26,7 +26,6 @@ function App(props) {
           <Route path="/home/:Id" component={ProductPage} />
           <Route exact path="/auth" component={AuthPage} />
           <Route exact path="/payments" component={Payments} />
-
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/home" component={Home} />
           <Route path="/not-found" component={NotFoundPage} />
