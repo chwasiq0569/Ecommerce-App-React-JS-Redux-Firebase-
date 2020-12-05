@@ -44,10 +44,5 @@ const mapStateToProps = (state) => {
     user: state.user,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    check_User: (user) => dispatch(check_User(user)),
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

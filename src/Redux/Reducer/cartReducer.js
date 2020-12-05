@@ -2,6 +2,7 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   DECREASE_QUANTITY,
+  UPDATE_CART,
 } from "../Actions/ActionTypes";
 import { INCREASE_QUANTITY } from "./../Actions/ActionTypes";
 const initialState = {
@@ -21,7 +22,6 @@ export const cartReducer = (state = initialState, action) => {
         ...state,
         cartItems: [...action.payload],
       };
-
     case INCREASE_QUANTITY:
       return {
         ...state,

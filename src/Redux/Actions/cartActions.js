@@ -3,6 +3,7 @@ import {
   REMOVE_FROM_CART,
   DECREASE_QUANTITY,
   INCREASE_QUANTITY,
+  UPDATE_CART,
 } from "./ActionTypes";
 export const add_to_cart = (item) => {
   return {
