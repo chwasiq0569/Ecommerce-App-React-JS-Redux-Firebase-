@@ -127,9 +127,9 @@ export const signInWithGoogle = (props) => {
     .signInWithPopup(base_provider)
     .then(function (result) {
       if (props.cart_Items.cart.cartItems.length !== 0) {
-        props.history.push("/payments");
-      } else {
         props.history.push("/cart");
+      } else {
+        props.history.push("/home");
       }
       notifySuccess("LogIn Sucessfully!");
     })
@@ -144,9 +144,9 @@ export const login = (props, email, password, setFireErrors) => {
     .signInWithEmailAndPassword(email, password)
     .then(() => {
       if (props.cart_Items.cart.cartItems.length !== 0) {
-        props.history.push("/payments");
-      } else {
         props.history.push("/cart");
+      } else {
+        props.history.push("/home");
       }
       notifySuccess("LogIn Sucessfully!");
     })
@@ -162,9 +162,9 @@ export const signUp = (props, email, password, setFireErrors) => {
     .createUserWithEmailAndPassword(email, password)
     .then(() => {
       if (props.cart_Items.cart.cartItems.length !== 0) {
-        props.history.push("/payments");
-      } else {
         props.history.push("/cart");
+      } else {
+        props.history.push("/home");
       }
       notifySuccess("SignUp Sucessfully!");
     })
