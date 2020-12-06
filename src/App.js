@@ -11,13 +11,11 @@ import AuthPage from "./Components/AuthPage/AuthPage";
 import Payments from "./Components/Payments/Payments";
 import { AnimatePresence } from "framer-motion";
 import { connect } from "react-redux";
-import { check_User } from "./Redux/Actions/userActions";
 
 function App(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  console.log("props.cart_Items: ", props.cart_Items.cart.cartItems);
   return (
     <div className="App">
       <Header />
@@ -25,6 +23,7 @@ function App(props) {
         <Switch>
           <Route path="/home/:Id" component={ProductPage} />
           <Route exact path="/auth" component={AuthPage} />
+
           <Route exact path="/payments" component={Payments} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/home" component={Home} />
